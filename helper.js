@@ -24,11 +24,10 @@ exports.downloadgame = () => {
 
     document.getElementById('extractedFile').innerHTML = 'Status: Downloading files...'
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:3000/download", true);
+    xhr.open("GET", "http://165.227.115.42:3001/download", true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             document.getElementById('extractedFile').innerHTML = 'Status: Recieved Compressed Files...'
-            // alert("Failed to download:" + xhr.status + "---" + xhr.statusText);
             var blob = new Blob([xhr.response], {type: "octet/stream"});
             
             var fileReader = new FileReader();
@@ -43,18 +42,6 @@ exports.downloadgame = () => {
                     
                     unzipper.on('extract', function (log) {
                         document.getElementById('extractedFile').innerHTML = 'Status: Download Complete'
-                        // var moveFile = (file, dir2)=>{
-                        //     var f = path.basename(file);
-                        //     var dest = path.resolve(dir2, f);
-                        
-                        //     fs.rename(file, dest, (err)=>{
-                        //     if(err) throw err;
-                        //     else document.getElementById('extractedFile').innerHTML = 'Status: Download Complete!'
-                        //     });
-                        // };
-                        
-                        // //move file1.htm from 'test/' to 'test/dir_1/'
-                        // moveFile('./bin/temp/TestBuild', './bin/');
                     });
                     
                     unzipper.on('progress', function (fileIndex, fileCount) {
@@ -71,40 +58,10 @@ exports.downloadgame = () => {
                 });
             };
             fileReader.readAsArrayBuffer(blob);
-            
-            // var fileName = "Test.zip";
- 
-            // var a = document.createElement("a");
-            // document.body.appendChild(a);
-            // a.style = "display: none";
-
-            //         url = window.URL.createObjectURL(blob);
-            //     a.href = url;
-            //     a.download = fileName;
-            //     a.click();
-            //     window.URL.revokeObjectURL(url);
-            
         }
     }
     xhr.responseType = "arraybuffer";
     xhr.send();
-    
-    // var buf = Buffer.from(response.data);   
-    // fs.writeFile('./Test.zip', buf, () => {
-    //     var stats = fs.statSync('./Test.zip')
-    //     var fileSizeInBytes = stats["size"]
-    //     var fileSizeInMegabytes = fileSizeInBytes / 1000000.0
-    //     console.log('Size (mb): ' + fileSizeInMegabytes)
-            
-    // }) 
-
-
-        // fs.writeFile('./Test.zip',response.data,() => {
-            
-        //      console.log("Wrote to file!")
-        // })
-    //})
-    //window.open('http://localhost:3000/download');
 }
 
 exports.closelauncher = () => {
