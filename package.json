@@ -1,0 +1,39 @@
+{
+  "name": "nightfall-launcher",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^7.1.1",
+    "electron-builder": "^22.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "decompress-zip": "^0.2.2"
+  },
+  "build": {
+    "appId": "com.nightfall.launcher",
+    "win": {
+      "target": "NSIS"
+    },
+      "extraFiles": [
+        "bin"
+      ]
+    
+  }
+}
