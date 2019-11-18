@@ -3,14 +3,22 @@
   <head>
     <meta charset="UTF-8">
     <title>Nightfall Launcher</title>
+    <link rel="stylesheet" href="./index.css">
   </head>
   <body>
-    <h1> Nightfall Launcher </h1>
+    <center>
+    <img src="./assets/NightFallHD.png" style="width: 200px">
+  </center>
+  <div class="bottom">
+    <center>
     <button id="playButton"> Play Game </button>
     <button id="downloadgame"> Download Game </button>
-    <p><span id="extractedFile">Status: None</span></p>
-
     <button id="closelauncher">Close Launcher</button>
+    <p class="status"><span id="extractedFile">Status: None</span></p>
+
+    
+  </center>
+  </div>
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
     <script src="./listeners.js"></script>

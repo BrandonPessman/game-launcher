@@ -1,0 +1,22 @@
+body {
+    background-image: URL('./assets/Normal.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+.status {
+    background-color: rgba(0,0,0,.5);
+    width: 100%;
+    border-radius: 5px;
+}
